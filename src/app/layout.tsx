@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { LogoIconSVG } from '@/components/logo/logo-icon-svg';
+import { LogoTitleSVG } from '@/components/logo/logo-title-svg';
+import { colors } from '@/constants/colors';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,23 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(GeistSans.className, 'text-primary')}>
+      <body className={cn(GeistSans.className, 'text-secondary-foreground')}>
         <div className="flex h-screen w-full bg-[url('/assets/bg-auth.jpeg')]">
           <div className="bg-gradient flex h-full w-full flex-col bg-gradient-to-b from-black/90 via-black/20 to-black/90 ">
             <div className="container z-50 flex h-32 w-full items-center justify-between">
               <div className="flex items-center gap-2">
-                <Image
-                  alt="logo"
-                  src="/assets/logo.svg"
-                  width={48}
-                  height={48}
-                />
-                <Image
-                  alt="logo title"
-                  src="/assets/logo-title.svg"
-                  width={140}
-                  height={50}
-                />
+                <LogoIconSVG width={50} height={50} color={colors.primary} />
+                <LogoTitleSVG width={150} height={50} color={colors.primary} />
               </div>
               <Button>Sign In</Button>
             </div>
